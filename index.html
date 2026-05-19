@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Result Generator</title>
+
+<style>
+body{
+    font-family: Arial;
+    background:#f2f2f2;
+}
+
+.container{
+    width:350px;
+    margin:50px auto;
+    padding:20px;
+    background:white;
+    border-radius:10px;
+    box-shadow:0px 0px 10px gray;
+}
+
+h2{
+    text-align:center;
+    color:#2a5bd7;
+}
+
+input, select{
+    width:100%;
+    padding:8px;
+    margin:8px 0;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    background:#2a5bd7;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1e46a5;
+}
+
+table{
+    width:100%;
+    margin-top:15px;
+    border-collapse:collapse;
+}
+
+th,td{
+    border:1px solid gray;
+    padding:6px;
+    text-align:center;
+}
+
+th{
+    background:#ddd;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Student Result Generator</h2>
+
+<label>Student Name</label>
+<input type="text" id="name">
+
+<label>USN</label>
+<input type="text" id="usn">
+
+<label>Gender</label>
+<select id="gender">
+<option>Male</option>
+<option>Female</option>
+</select>
+
+<label>Marks</label>
+<input type="number" id="marks">
+
+<button onclick="addResult()">Generate Result</button>
+
+<h3>Result Table</h3>
+
+<table id="resultTable">
+<tr>
+<th>Name</th>
+<th>USN</th>
+<th>Gender</th>
+<th>Marks</th>
+<th>Grade</th>
+</tr>
+</table>
+
+</div>
+
+<script>
+
+function addResult(){
+
+let name=document.getElementById("name").value;
+let usn=document.getElementById("usn").value;
+let gender=document.getElementById("gender").value;
+let marks=document.getElementById("marks").value;
+
+let grade="";
+
+if(marks>=90) grade="A";
+else if(marks>=75) grade="B";
+else if(marks>=60) grade="C";
+else if(marks>=40) grade="D";
+else grade="Fail";
+
+let table=document.getElementById("resultTable");
+
+let row=table.insertRow();
+
+row.insertCell(0).innerHTML=name;
+row.insertCell(1).innerHTML=usn;
+row.insertCell(2).innerHTML=gender;
+row.insertCell(3).innerHTML=marks;
+row.insertCell(4).innerHTML=grade;
+
+}
+
+</script>
+
+</body>
+</html>
